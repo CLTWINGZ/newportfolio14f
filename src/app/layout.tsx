@@ -1,6 +1,11 @@
-import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#050711",
+  colorScheme: "dark",
+};
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,8 +14,8 @@ const inter = Inter({
   weight: ["300", "400", "500", "600"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
@@ -91,8 +96,8 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${outfit.variable}`}>
+    <html lang="en" style={{ background: "#050711" }} suppressHydrationWarning>
+      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
