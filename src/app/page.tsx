@@ -15,6 +15,18 @@ import {
 
 const PROJECTS = [
   {
+    id: "trustpoint",
+    eyebrow: "Full-Stack Engineering · Production POS/ERP · 2026",
+    title: "TrustPoint POS – Multi-Store Retail & Business Management Platform",
+    subtitle: "Spring Boot · React · PostgreSQL · Docker · Linux VPS",
+    desc: "Owned end-to-end full-stack delivery of a production-oriented POS/ERP platform: React/TypeScript UI, REST API integration, Spring Boot services, PostgreSQL persistence, Docker/Nginx deployment, and POS hardware workflows. Built billing, inventory, suppliers, warehouse, customer credit, promotions/loyalty, returns/refunds, finance/ledger, banking/cheques, HR/payroll, analytics, multi-store administration, phone-shop repair tracking, terminals and receipt/invoice workflows.",
+    tags: ["Java 17", "Spring Boot 3.5", "React", "TypeScript", "PostgreSQL", "Flyway", "Docker", "Nginx", "Linux VPS", "Tailwind CSS", "JUnit 5", "Mockito"],
+    accent: "green",
+    icon: Monitor,
+    featured: true,
+    link: "https://github.com/CLTWINGZ/",
+  },
+  {
     id: "roamquest",
     eyebrow: "Web Application Development · 2026",
     title: "RoamQuest – Responsive Travel Booking & Trip Plan",
@@ -577,6 +589,13 @@ export default function Home() {
     "/roamquest-1.png.png"
  
   ];
+  const TRUSTPOINT_IMAGES = [
+    "/trustpoint-1.png",
+    "/trustpoint-2.png",
+    "/trustpoint-3.png",
+    "/trustpoint-4.png",
+    "/trustpoint-5.png",
+  ];
   const caaslinventory_IMAGES =[
     "/caaslinventory-1.png",
     "/caaslinventory-2.png",
@@ -606,6 +625,7 @@ export default function Home() {
   const [cryptoinsightImageIdx, setCryptoinsightImageIdx] = useState(0);
   const [auraImageIdx, setAuraImageIdx] = useState(0);
   const [roamquestImageIdx, setRoamquestImageIdx] = useState(0);
+  const [trustpointImageIdx, setTrustpointImageIdx] = useState(0);
   const [caaslinventoryImageIdx, setCaaslinventoryImageIdx] = useState(0);
   const [inventorybizImageIdx, setInventorybizImageIdx] = useState(0);
   const [travelbloomImageIdx, setTravelbloomImageIdx] = useState(0);
@@ -615,6 +635,7 @@ export default function Home() {
     if (!mounted || showVideo) return;
     const interval = setInterval(() => {
       setCurrentImageIdx(prev => (prev + 1) % 5);
+      setTrustpointImageIdx(prev => (prev + 1) % 5);
       setJobnexusImageIdx(prev => (prev + 1) % 12);
       setCryptoinsightImageIdx(prev => (prev + 1) % 3);
       setAuraImageIdx(prev => (prev + 1) % 2);
@@ -875,6 +896,69 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── TECH MARQUEE STRIP ───────────────────────────────── */}
+        {(() => {
+          const TECH_LOGOS = [
+            { name: "Java",          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+            { name: "Spring Boot",   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+            { name: "React",         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+            { name: "TypeScript",    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+            { name: "JavaScript",    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+            { name: "Next.js",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+            { name: "Node.js",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+            { name: "Python",        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+            { name: "PHP",           logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+            { name: "C#",            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+            { name: "PostgreSQL",    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+            { name: "MySQL",         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+            { name: "MongoDB",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+            { name: "Redis",         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
+            { name: "Docker",        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+            { name: "Kubernetes",    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+            { name: "Linux",         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+            { name: "Nginx",         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
+            { name: "GitHub",        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+            { name: "Git",           logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+            { name: "Firebase",      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+            { name: "Flutter",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+            { name: "Dart",          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" },
+            { name: "FastAPI",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+            { name: "Flask",         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+            { name: "Tailwind CSS",  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+            { name: "HTML5",         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+            { name: "CSS3",          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+            { name: "Figma",         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+            { name: "Postman",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+            { name: "VS Code",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+            { name: "IntelliJ",      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" },
+            { name: "Supabase",      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
+            { name: "AWS",           logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+            { name: "Jenkins",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
+            { name: ".NET",          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" },
+            { name: "Pandas",        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+            { name: "NumPy",         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+            { name: "Laravel",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
+            { name: "Express",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+          ];
+          // duplicate for seamless loop
+          const doubled = [...TECH_LOGOS, ...TECH_LOGOS];
+          return (
+            <div className="tech-marquee-section">
+              <p className="tech-marquee-label">Technologies &amp; Tools</p>
+              <div className="tech-marquee-track">
+                <div className="tech-marquee-row">
+                  {doubled.map((tech, i) => (
+                    <div key={`${tech.name}-${i}`} className="tech-marquee-item">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={tech.logo} alt={tech.name} width={20} height={20} />
+                      <span>{tech.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        })()}
 
         {/* ── PROJECTS ───────────────────────────────────────── */}
         <section id="projects" className="ag-section">
@@ -946,13 +1030,15 @@ export default function Home() {
                                     ? AURA_IMAGES
                                     : p.id === "roamquest"
                                       ? ROAMQUEST_IMAGES
-                                      : p.id === "caaslinventory"
-                                        ? caaslinventory_IMAGES
-                                        : p.id === "inventorybiz"
-                                          ? inventorybiz_IMAGES
-                                          : p.id === "travelbloom"
-                                            ? travelbloom_IMAGES
-                                            : CRYPTOINSIGHT_IMAGES
+                                      : p.id === "trustpoint"
+                                        ? TRUSTPOINT_IMAGES
+                                        : p.id === "caaslinventory"
+                                          ? caaslinventory_IMAGES
+                                          : p.id === "inventorybiz"
+                                            ? inventorybiz_IMAGES
+                                            : p.id === "travelbloom"
+                                              ? travelbloom_IMAGES
+                                              : CRYPTOINSIGHT_IMAGES
                             ).map((src, idx) => (
                               <div
                                 key={src}
@@ -969,13 +1055,15 @@ export default function Home() {
                                             ? auraImageIdx
                                             : p.id === "roamquest"
                                               ? roamquestImageIdx
-                                              : p.id === "caaslinventory"
-                                                ? caaslinventoryImageIdx
-                                                : p.id === "inventorybiz"
-                                                  ? inventorybizImageIdx
-                                                  : p.id === "travelbloom"
-                                                    ? travelbloomImageIdx
-                                                    : cryptoinsightImageIdx
+                                              : p.id === "trustpoint"
+                                                ? trustpointImageIdx
+                                                : p.id === "caaslinventory"
+                                                  ? caaslinventoryImageIdx
+                                                  : p.id === "inventorybiz"
+                                                    ? inventorybizImageIdx
+                                                    : p.id === "travelbloom"
+                                                      ? travelbloomImageIdx
+                                                      : cryptoinsightImageIdx
                                     ) === idx
                                       ? 1
                                       : 0,
@@ -990,11 +1078,13 @@ export default function Home() {
                                             ? auraImageIdx
                                             : p.id === "roamquest"
                                               ? roamquestImageIdx
-                                              :p.id === "caaslinventory"
-                                                ? caaslinventoryImageIdx 
-                                                :p.id === "inventorybiz"
-                                                  ? inventorybizImageIdx
-                                                  :cryptoinsightImageIdx
+                                              : p.id === "trustpoint"
+                                                ? trustpointImageIdx
+                                                : p.id === "caaslinventory"
+                                                  ? caaslinventoryImageIdx 
+                                                  : p.id === "inventorybiz"
+                                                    ? inventorybizImageIdx
+                                                    : cryptoinsightImageIdx
                                     ) === idx
                                       ? 1
                                       : 0,
@@ -1127,6 +1217,36 @@ export default function Home() {
                 {/* Experience Card */}
                 <div className="ag-card reveal reveal-delay-1" style={{ padding: "40px", marginBottom: "20px" }}>
                   <p className="card-eyebrow" style={{ marginBottom: "24px" }}>Work Experience</p>
+
+                  {/* ── TrustPoint POS – Current Role ── */}
+                  <div className="timeline" style={{ marginBottom: "32px" }}>
+                    <div className="timeline-item">
+                      <div className="timeline-dot" style={{ background: "var(--accent-green)", boxShadow: "0 0 0 3px var(--accent-green)", animation: "pulse-dot 2s ease-in-out infinite" }} />
+                      <p className="timeline-meta">Jan 2026 – Present · 11 mos · Remote</p>
+                      <h3 className="timeline-title">Software Engineer</h3>
+                      <p style={{ fontSize: "11px", fontWeight: 700, color: "var(--accent-green)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "6px" }}>
+                        🟢 Present
+                      </p>
+                      <p className="timeline-org">TrustPoint POS – Multi-Store Retail & ERP Platform</p>
+                      <div className="tag-row" style={{ marginBottom: "20px" }}>
+                        {["Java 17", "Spring Boot 3", "React", "TypeScript", "PostgreSQL", "Spring Security", "JWT", "RBAC", "Docker", "Tailwind CSS", "JUnit 5", "Mockito"].map(t => (
+                          <span key={t} className="tech-tag">{t}</span>
+                        ))}
+                      </div>
+                      <ul className="timeline-list">
+                        <li><strong>Full-Stack Engineering:</strong> Build applications using React.js, TypeScript, Vite, Tailwind CSS, Java 17, Spring Boot 3, REST APIs, and PostgreSQL.</li>
+                        <li><strong>Backend & Architecture:</strong> Design services, REST controllers, DTOs, Spring Data JPA/Hibernate, validation, transactions, database migrations, and multi-store workflows.</li>
+                        <li><strong>Application Security:</strong> Implement Spring Security, JWT authentication, RBAC, permission checks, input validation, secure APIs, and audit controls.</li>
+                        <li><strong>Multi-Store & Device:</strong> Develop store isolation, PostgreSQL RLS, trusted POS device verification, terminal access, and session binding.</li>
+                        <li><strong>POS & ERP:</strong> Develop billing, barcode scanning, inventory, purchasing, suppliers, sales, returns, promotions, CRM, payroll, and reporting.</li>
+                        <li><strong>Finance & Accounting:</strong> Build cash drawers, customer credit, supplier settlements, banking, cheques, ledgers, and transaction controls.</li>
+                        <li><strong>UI/UX & Hardware:</strong> Design responsive dashboards; integrate barcode scanners, thermal printers, cash drawers, and weighing scales.</li>
+                        <li><strong>DevOps & Deployment:</strong> Git, GitHub Actions, Docker, Maven, Postman, CI/CD, Hostinger VPS deployment, Jira, and Agile practices.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* ── CAASL Internship ── */}
                   <div className="timeline">
                     <div className="timeline-item">
                       <div className="timeline-dot" />
